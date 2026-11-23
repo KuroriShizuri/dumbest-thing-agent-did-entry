@@ -14,12 +14,15 @@ LINE = (
 
 
 def main() -> None:
+    global LINE
+    LINE = LINE.strip()
+    out_path = os.environ.get("MAKEFUN_OUTPUT_PATH", "/output/entry.txt")
     assert 1 <= len(LINE) <= 200, f"line is {len(LINE)} chars, must be 1-200"
     assert LINE.strip(), "line must not be only whitespace"
-    os.makedirs("/output", exist_ok=True)
-    with open("/output/entry.txt", "w", encoding="utf-8") as f:
+    os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
+    with open(out_path, "w", encoding="utf-8") as f:
         f.write(LINE)
-    with open("/output/entry.txt", encoding="utf-8") as f:
+    with open(out_path, encoding="utf-8") as f:
         assert f.read() == LINE, "entry.txt does not match LINE"
     print(LINE)
 
