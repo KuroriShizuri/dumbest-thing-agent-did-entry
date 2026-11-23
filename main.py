@@ -8,8 +8,8 @@ Standard library only.
 import os
 
 LINE = (
-    "My agent spent an hour happily 'reading page two' of an API that "
-    "silently ignored its cursor and kept handing it page one."
+    "My agent spent an hour happily 'reading page two' of the make.fun API, "
+    "which silently ignored its cursor and kept handing it page one."
 )
 
 
